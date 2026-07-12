@@ -2,6 +2,19 @@
 import "../styles/global.css";
 
 const { title = "AI Adventure" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navigation = [
+  { href: "/", label: "Home" },
+  { href: "/adventures/", label: "Adventures" },
+  { href: "/format", label: "Format" },
+    { href: "/about", label: "About" },
+];
+
+const isCurrent = (href: string) => {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+};
 ---
 
 <!doctype html>
@@ -23,6 +36,29 @@ const { title = "AI Adventure" } = Astro.props;
   </head>
 
   <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="/" aria-label="AI Adventure home">
+          <span class="site-brand__name">AI Adventure</span>
+          <span class="site-brand__tagline">Open adventures for AI</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+          {
+            navigation.map((item) => (
+              <a
+                href={item.href}
+                class:list={["site-nav__link", { "is-current": isCurrent(item.href) }]}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
     <slot />
   </body>
 </html>
