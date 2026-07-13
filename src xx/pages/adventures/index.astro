@@ -1,0 +1,68 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const adventures = (await getCollection(
+  "adventures",
+  ({ data }) => data.published
+)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<Layout title="Adventures | AI Adventure">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">Choose your story</p>
+      <h1>Adventures</h1>
+
+      <p class="introduction">
+        Choose an adventure, select how you want it played, then copy the launch prompt into ChatGPT.
+      </p>
+    </header>
+
+    <section class="adventure-grid">
+      {
+        adventures.map((adventure) => (
+          <article class="adventure-card">
+            {adventure.data.featured && (
+              <span class="badge">Featured adventure</span>
+            )}
+
+            <h2>
+              <a href={`/adventures/${adventure.id}/`}>
+                {adventure.data.title}
+              </a>
+            </h2>
+
+            <p>{adventure.data.description}</p>
+
+            <dl>
+              <div>
+                <dt>Style</dt>
+                <dd>{adventure.data.style}</dd>
+              </div>
+
+              <div>
+                <dt>Difficulty</dt>
+                <dd>{adventure.data.difficulty}</dd>
+              </div>
+
+              <div>
+                <dt>Playing time</dt>
+                <dd>{adventure.data.playTime}</dd>
+              </div>
+            </dl>
+
+            <div class="card-actions">
+              <a class="button" href={`/launcher/?adventure=${adventure.id}`}>
+                Play this one
+              </a>
+              <a class="text-link" href={`/adventures/${adventure.id}/`}>
+                More details
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</Layout>

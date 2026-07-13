@@ -519,26 +519,6 @@ Versions before `1.0` should be considered experimental.
 
 The format should remain simple enough for humans to write and AI systems to understand without specialised software.
 
-## System Commands
-
-Commands beginning with `/` are reserved for communication between the player and the AI narrator.
-
-They are outside the game world and must not:
-
-- consume game time
-- trigger events
-- change the adventure's truths
-
-Examples:
-
-- `/shorter replies`
-- `/longer replies`
-- `/show inventory`
-- `/hint`
-
-These commands modify the storytelling experience rather than the adventure itself.
-
-
 ## Summary
 
 An AI Adventure provides:
