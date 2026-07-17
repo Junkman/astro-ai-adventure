@@ -1,0 +1,8 @@
+# robots.txt for AI Adventure
+# https://aiadventure.game-host.org
+
+User-agent: *
+
+Allow: /
+
+Sitemap: https://aiadventure.game-host.org/sitemap-index.xml

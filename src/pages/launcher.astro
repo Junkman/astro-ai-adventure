@@ -9,7 +9,6 @@ const adventures = (await getCollection(
   id: adventure.id,
   title: adventure.data.title,
   description: adventure.data.description,
-  playTime: adventure.data.playTime,
 }));
 ---
 
@@ -33,7 +32,7 @@ const adventures = (await getCollection(
 
       <fieldset class="launcher-option">
         <legend>Playing style</legend>
-        <p class="option-help">How readily should ChatGPT help when you become stuck?</p>
+        <p class="option-help">How readily should your AI help when you become stuck?</p>
 
         <label class="choice-card">
           <input type="radio" name="style" value="Helpful" />
@@ -69,20 +68,20 @@ const adventures = (await getCollection(
       </fieldset>
 
       <fieldset class="launcher-option">
-        <legend>Target playing time</legend>
-        <p class="option-help">ChatGPT will adjust pacing rather than simply stopping at the clock.</p>
+        <legend>Journey length</legend>
+        <p class="option-help">Choose the pace and depth of the journey. This is a guide, not a stopwatch.</p>
 
         <div class="choice-row">
-          <label><input type="radio" name="time" value="15 minutes" /> 15 minutes</label>
-          <label><input type="radio" name="time" value="30 minutes" checked /> 30 minutes</label>
-          <label><input type="radio" name="time" value="60 minutes" /> 60 minutes</label>
-          <label><input type="radio" name="time" value="Open-ended" /> Open-ended</label>
+          <label><input type="radio" name="journey" value="Brief" /> Brief</label>
+          <label><input type="radio" name="journey" value="Standard" checked /> Standard</label>
+          <label><input type="radio" name="journey" value="Extended" /> Extended</label>
+          <label><input type="radio" name="journey" value="Open-ended" /> Open-ended</label>
         </div>
       </fieldset>
 
       <fieldset class="launcher-option">
         <legend>Randomness</legend>
-        <p class="option-help">How much freedom should ChatGPT use when bringing the adventure to life?</p>
+        <p class="option-help">How much freedom should your AI use when bringing the adventure to life?</p>
 
         <div class="choice-row">
           <label><input type="radio" name="randomness" value="Low" /> Low</label>
@@ -95,8 +94,8 @@ const adventures = (await getCollection(
     </form>
 
     <section id="prompt-panel" class="prompt-panel" hidden aria-live="polite">
-      <h2>Your ChatGPT launch prompt</h2>
-      <p>Copy this text into a new ChatGPT conversation.</p>
+      <h2>Your AI launch prompt</h2>
+      <p>Copy this text into a new conversation with your preferred AI.</p>
       <textarea id="launch-prompt" rows="13" readonly></textarea>
       <div class="prompt-actions">
         <button class="button" id="copy-prompt" type="button">Copy prompt</button>
@@ -135,14 +134,14 @@ const adventures = (await getCollection(
 
     const data = new FormData(form);
     const style = data.get("style");
-    const targetTime = data.get("time");
+    const journeyLength = data.get("journey");
     const randomness = data.get("randomness");
     const origin = window.location.origin;
 
     const guideUrl = `${origin}/AI-Adventure-Guide.md`;
     const adventureUrl = `${origin}/adventures/${adventure.id}.aia.md`;
 
-    promptOutput.value = `Refer to and follow:\n${guideUrl}\n\nPlay the adventure at:\n${adventureUrl}\n\nSettings:\nPlaying style: ${style}\nTarget time: ${targetTime}\nRandomness: ${randomness}\n\nBegin the adventure without revealing hidden information.`;
+    promptOutput.value = `Refer to and follow:\n${guideUrl}\n\nPlay the adventure at:\n${adventureUrl}\n\nSettings:\nPlaying style: ${style}\nJourney length: ${journeyLength}\nRandomness: ${randomness}\n\nBegin the adventure without revealing hidden information.`;
 
     promptPanel.hidden = false;
     copyStatus.textContent = "";

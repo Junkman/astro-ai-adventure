@@ -3,11 +3,11 @@ aiaVersion: "0.1"
 title: "Echoes"
 id: "echoes"
 author: "AI Adventure"
-version: "0.1"
+version: "0.2"
 description: "A quiet and unusual exploration of memory, perception and choice."
 genre: "Reflective mystery"
-estimatedTime: "30–60 minutes"
-difficulty: "Easy"
+typicalJourney: "Standard"
+challenge: "Gentle"
 supportedStyles:
   - helpful
   - balanced
@@ -17,6 +17,7 @@ supportedRandomness:
   - low
   - medium
   - high
+published: true
 ---
 
 # Echoes
@@ -84,7 +85,7 @@ The obvious door is not the only meaningful way forward.
 
 The chamber reveals more to a player who listens, waits, sits, closes their eyes or otherwise changes how they perceive the room.
 
-Do not immediately reward a single token pause. Let attention feel genuine, but adapt to the selected target time.
+Do not immediately reward a single token pause. Let attention feel genuine, but adapt to the selected journey length.
 
 Force against the door should produce believable feedback and perhaps reveal something about the player or room, but should not be the intended solution.
 
@@ -235,7 +236,7 @@ It represents a relationship with memory. Taking it, refusing it, losing it or r
 
 ## Optional Logical Encounter: Two Doors and Two Guardians
 
-This encounter may be included when it suits the route, target time and randomness.
+This encounter may be included when it suits the route, journey setting and randomness.
 
 ### Purpose
 

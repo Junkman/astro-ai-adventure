@@ -31,20 +31,20 @@ const { Content } = await render(adventure);
       </p>
 
       <header class="page-header">
-        <p class="eyebrow">{adventure.data.style}</p>
+        <p class="eyebrow">{adventure.data.genre}</p>
         <h1>{adventure.data.title}</h1>
         <p class="introduction">{adventure.data.description}</p>
       </header>
 
       <dl class="adventure-details">
         <div>
-          <dt>Difficulty</dt>
-          <dd>{adventure.data.difficulty}</dd>
+          <dt>Challenge</dt>
+          <dd>{adventure.data.challenge}</dd>
         </div>
 
         <div>
-          <dt>Playing time</dt>
-          <dd>{adventure.data.playTime}</dd>
+          <dt>Typical journey</dt>
+          <dd>{adventure.data.typicalJourney}</dd>
         </div>
 
         <div>
