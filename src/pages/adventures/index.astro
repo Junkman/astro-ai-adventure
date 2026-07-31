@@ -6,6 +6,9 @@ const adventures = (await getCollection(
   "adventures",
   ({ data }) => data.published
 )).sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const getAdventureId = (adventure) =>
+  adventure.data.id ?? adventure.id.replace(/\.aia$/, "");
 ---
 
 <Layout title="Adventures | AI Adventure">
@@ -21,47 +24,52 @@ const adventures = (await getCollection(
 
     <section class="adventure-grid">
       {
-        adventures.map((adventure) => (
-          <article class="adventure-card">
-            {adventure.data.featured && (
-              <span class="badge">Featured adventure</span>
-            )}
+        adventures.map((adventure) => {
+          const adventureId = getAdventureId(adventure);
 
-            <h2>
-              <a href={`/adventures/${adventure.id}/`}>
-                {adventure.data.title}
-              </a>
-            </h2>
+          return (
+            <article class="adventure-card">
+              {adventure.data.featured && (
+                <span class="badge">Featured adventure</span>
+              )}
 
-            <p>{adventure.data.description}</p>
+              <h2>
+                <a href={`/adventures/${adventureId}/`}>
+                  {adventure.data.title}
+                </a>
+              </h2>
 
-            <dl>
-              <div>
-                <dt>Genre</dt>
-                <dd>{adventure.data.genre}</dd>
+              <p>{adventure.data.description}</p>
+
+              <dl>
+                <div>
+                  <dt>Genre</dt>
+                  <dd>{adventure.data.genre}</dd>
+                </div>
+
+                <div>
+                  <dt>Challenge</dt>
+                  <dd>{adventure.data.challenge}</dd>
+                </div>
+
+                <div>
+                  <dt>Typical journey</dt>
+                  <dd>{adventure.data.typicalJourney}</dd>
+                </div>
+              </dl>
+
+              <div class="card-actions">
+                <a class="button" href={`/launcher/?adventure=${adventureId}`}>
+                  Play this one
+                </a>
+
+                <a class="text-link" href={`/adventures/${adventureId}/`}>
+                  More details
+                </a>
               </div>
-
-              <div>
-                <dt>Challenge</dt>
-                <dd>{adventure.data.challenge}</dd>
-              </div>
-
-              <div>
-                <dt>Typical journey</dt>
-                <dd>{adventure.data.typicalJourney}</dd>
-              </div>
-            </dl>
-
-            <div class="card-actions">
-              <a class="button" href={`/launcher/?adventure=${adventure.id}`}>
-                Play this one
-              </a>
-              <a class="text-link" href={`/adventures/${adventure.id}/`}>
-                More details
-              </a>
-            </div>
-          </article>
-        ))
+            </article>
+          );
+        })
       }
     </section>
   </main>

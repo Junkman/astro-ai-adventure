@@ -1,27 +1,26 @@
 ---
-aiaVersion: "0.1"
 title: "Echoes"
 id: "echoes"
 author: "AI Adventure"
 aiaVersion: "0.1"
 adventureVersion: "0.2"
-description: "A quiet and unusual exploration of memory, perception and choice."
+description: "Explore a quiet place where perception, memory and unusual choices matter."
 genre: "Reflective mystery"
-typicalJourney: "Standard"
 challenge: "Gentle"
-supportedStyles:
-  - helpful
-  - balanced
-  - strict
-  - deadly
-supportedRandomness:
-  - low
-  - medium
-  - high
+typicalJourney: "Standard"
+featured: true
 published: true
 ---
 
 # Echoes
+
+# Public Information
+
+## About Echoes
+
+You awaken in an unfamiliar place with no clear memory of how you arrived.
+
+The environment rewards observation, patience and unusual choices. Not every problem is solved by taking an object or forcing open a door.
 
 ## Adventure Promise
 
@@ -30,6 +29,8 @@ The player should feel curious, slightly uncertain and increasingly thoughtful.
 The adventure rewards patience, observation and unusual ideas more than force or conventional puzzle-solving.
 
 The final experience should feel personal and reflective rather than like a victory over a mechanical obstacle.
+
+# AI Adventure Specification
 
 ## Player Introduction
 
@@ -86,7 +87,7 @@ The obvious door is not the only meaningful way forward.
 
 The chamber reveals more to a player who listens, waits, sits, closes their eyes or otherwise changes how they perceive the room.
 
-Do not immediately reward a single token pause. Let attention feel genuine, but adapt to the selected journey length.
+Do not immediately reward a single token pause. Let attention feel genuine, but adapt to the selected target time.
 
 Force against the door should produce believable feedback and perhaps reveal something about the player or room, but should not be the intended solution.
 
@@ -237,7 +238,7 @@ It represents a relationship with memory. Taking it, refusing it, losing it or r
 
 ## Optional Logical Encounter: Two Doors and Two Guardians
 
-This encounter may be included when it suits the route, journey setting and randomness.
+This encounter may be included when it suits the route, target time and randomness.
 
 ### Purpose
 

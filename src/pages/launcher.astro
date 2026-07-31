@@ -6,7 +6,7 @@ const adventures = (await getCollection(
   "adventures",
   ({ data }) => data.published
 )).map((adventure) => ({
-  id: adventure.id,
+  id: adventure.data.id ?? adventure.id,
   title: adventure.data.title,
   description: adventure.data.description,
 }));

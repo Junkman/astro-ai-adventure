@@ -8,12 +8,23 @@ const adventures = defineCollection({
   }),
 
   schema: z.object({
+    id: z.string().optional(),
+
     title: z.string(),
     description: z.string(),
     author: z.string().default("AI Adventure"),
-    version: z.string(),
+
+    aiaVersion: z.string(),
+    adventureVersion: z.string(),
+
     challenge: z.enum(["Gentle", "Moderate", "Demanding"]),
-    typicalJourney: z.enum(["Brief", "Standard", "Extended", "Open-ended"]),
+    typicalJourney: z.enum([
+      "Brief",
+      "Standard",
+      "Extended",
+      "Open-ended",
+    ]),
+
     genre: z.string(),
     featured: z.boolean().default(false),
     published: z.boolean().default(true),

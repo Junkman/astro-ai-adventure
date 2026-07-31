@@ -1,6 +1,6 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = (async () => {
@@ -9,18 +9,23 @@ export const getStaticPaths = (async () => {
     ({ data }) => data.published
   );
 
-  return adventures.map((adventure) => ({
-    params: {
-      id: adventure.id,
-    },
-    props: {
-      adventure,
-    },
-  }));
+  return adventures.map((adventure) => {
+    const id =
+      adventure.data.id ??
+      adventure.id.replace(/\.aia$/, "");
+
+    return {
+      params: {
+        id,
+      },
+      props: {
+        adventure,
+      },
+    };
+  });
 }) satisfies GetStaticPaths;
 
 const { adventure } = Astro.props;
-const { Content } = await render(adventure);
 ---
 
 <Layout title={`${adventure.data.title} | AI Adventure`}>
@@ -59,7 +64,8 @@ const { Content } = await render(adventure);
       </dl>
 
       <div class="content">
-        <Content />
+        <h2>About {adventure.data.title}</h2>
+        <p>{adventure.data.description}</p>
       </div>
     </article>
   </main>
