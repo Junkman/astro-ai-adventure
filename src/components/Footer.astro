@@ -1,0 +1,53 @@
+---
+const year = new Date().getFullYear();
+
+import { Version } from "../lib/version";
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p>
+      <strong>
+        <a href="/about/">
+          AI Adventure v{Version.framework}
+        </a>
+      </strong>
+      &copy; {year} Jim Creak
+    </p>
+
+    <p>
+      Released under <a
+        href="https://creativecommons.org/publicdomain/zero/1.0/"
+        target="_blank"
+        rel="noopener"
+      >CC0
+      </a> and free to use, modify and share.
+    </p>
+
+    <nav class="site-footer__links">
+      <a
+        href="https://github.com/Junkman/astro-ai-adventure"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <span>•</span>
+
+      <a href="/format/" title="Documentation">
+        Documentation
+      </a>
+
+      <span>•</span>
+
+      <a
+        href="https://ko-fi.com/ai_adventure"
+        target="_blank"
+        rel="noopener"
+      >
+        ☕ Shout AI Adventure a tea
+      </a>
+    </nav>
+  </div>
+</footer>

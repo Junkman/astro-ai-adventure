@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 
 const { title = "AI Adventure" } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -7,7 +8,7 @@ const currentPath = Astro.url.pathname;
 const navigation = [
   { href: "/", label: "Home" },
   { href: "/adventures/", label: "Adventures" },
-  { href: "/format/", label: "Format" },
+  { href: "/format/", label: "Documentation" },
   { href: "/about/", label: "About" },
 ];
 
@@ -40,7 +41,7 @@ const isCurrent = (href: string) => {
       <div class="site-header__inner">
         <a class="site-brand" href="/" aria-label="AI Adventure home">
           <span class="site-brand__name">AI Adventure</span>
-          <span class="site-brand__tagline">Open adventures for AI</span>
+          <span class="site-brand__tagline">Open framework for AI adventures</span>
         </a>
 
         <nav class="site-nav" aria-label="Main navigation">
@@ -60,5 +61,7 @@ const isCurrent = (href: string) => {
     </header>
 
     <slot />
+    
+    <Footer />
   </body>
 </html>

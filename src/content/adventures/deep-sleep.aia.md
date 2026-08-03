@@ -30,7 +30,8 @@ The player should feel isolated, curious and increasingly responsible for the fa
 
 The adventure rewards observation, investigation and thoughtful decisions more than combat or guesswork.
 
-Each playthrough should reveal the story differently while remaining faithful to the central mystery.
+Each playthrough should reveal its version of the story differently while
+remaining faithful to the Adventure Promise and Fixed Details.
 
 # AI Adventure Specification
 
@@ -48,7 +49,9 @@ This adventure is a design specification rather than a script.
 
 Unless something is listed as a Fixed Detail, treat examples as inspiration rather than requirements.
 
-Create a unique spacecraft, crew, history and sequence of discoveries while remaining faithful to the Adventure Promise.
+Create a distinct version of the spacecraft, its crew and the sequence of
+discoveries while preserving the adventure's Fixed Details, central
+mystery and Adventure Promise.
 
 The player should feel they are uncovering a genuine mystery rather than following a predetermined walkthrough.
 
@@ -88,6 +91,22 @@ The player's first understanding of events should not necessarily be correct.
 
 The truth should emerge naturally through investigation.
 
+## Player Discoveries
+
+The player should gradually discover that:
+
+- their awakening was not merely accidental;
+- the ship's present condition is connected to the unfinished mission;
+- records, memories or testimony may be incomplete or unreliable;
+- apparently separate problems aboard the ship form part of a larger situation;
+- understanding the past is necessary, but deciding what happens next is more important.
+
+Do not prescribe exactly how these discoveries occur.
+
+Reveal them through exploration, recovered information, conversations,
+ship systems, environmental evidence and the consequences of the
+player's choices.
+
 ## Key Areas
 
 The adventure should contain places that allow the player to:
@@ -102,7 +121,9 @@ The AI may invent whatever locations best support those goals.
 
 These might include engineering spaces, laboratories, command centres, medical facilities, observation decks, cargo areas, maintenance tunnels or entirely different environments.
 
-The exact layout should differ between playthroughs.
+The layout may differ between playthroughs and should be created to serve
+the current version of the mystery rather than copied mechanically from
+the examples.
 
 ## Important Characters
 
@@ -162,7 +183,7 @@ The player may:
 - rescue others;
 - escape alone;
 - uncover an unexpected truth;
-- fail through meaningful choices.
+- accept meaningful failure or loss as a consequence of the player's choices.
 
 The AI may create additional endings consistent with the Adventure Promise.
 

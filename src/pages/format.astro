@@ -2,34 +2,83 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="AI Adventure Format | AI Adventure">
+<Layout title="Documentation | AI Adventure">
   <main class="page">
     <header class="page-header">
-      <p class="eyebrow">Format</p>
+      <p class="eyebrow">Documentation</p>
 
-      <h1>AI Adventure Format</h1>
+      <h1>AI Adventure Documentation</h1>
 
       <p class="introduction">
-        The AI Adventure Format is an open specification for creating
-        AI-powered interactive adventures.
+        Everything needed to understand, play and create AI Adventures.
       </p>
     </header>
 
-    <p>
-      Rather than scripting every possible action, an AI Adventure describes a
-      world, its important truths, interesting places, meaningful objects and
-      possible endings.
-    </p>
+    <section class="documentation-section">
+      <h2>Playing AI Adventure</h2>
 
-    <p>
-      The AI is encouraged to create a unique experience for every player while
-      remaining faithful to the author's vision.
-    </p>
+      <p>
+        The AI Adventure Guide explains how an AI should run adventures,
+        preserve hidden information, maintain world state and create a unique
+        experience for each player.
+      </p>
 
-    <p>
-      <a class="button" href="/AIA-Format.md">
-        Download the Format Specification
-      </a>
-    </p>
+      <p>
+        <a class="button" href="/AI-Adventure-Guide.md">
+          View the AI Adventure Guide
+        </a>
+      </p>
+    </section>
+
+    <section class="documentation-section">
+      <h2>Creating Adventures</h2>
+
+      <p>
+        The AI Adventure Format is an open specification for creating
+        AI-powered interactive adventures.
+      </p>
+
+      <p>
+        Rather than scripting every possible action, an AI Adventure describes
+        the intended experience, important truths, discoveries, characters,
+        places and possible endings.
+      </p>
+
+      <p>
+        The AI is encouraged to create a distinct playthrough while remaining
+        faithful to the author's Adventure Promise and Fixed Details.
+      </p>
+
+      <p>
+        <a class="button" href="/AIA-Format.md">
+          View the Format Specification
+        </a>
+      </p>
+    </section>
+
+    <section class="documentation-section">
+      <h2>Open Framework</h2>
+
+      <p>
+        AI Adventure is released under the Creative Commons CC0 1.0 Universal
+        Public Domain Dedication.
+      </p>
+
+      <p>
+        You may use, modify, publish and build upon the framework for any
+        purpose, including commercial use, without asking permission.
+      </p>
+
+      <p>
+        <a
+          class="text-link"
+          href="https://github.com/Junkman/astro-ai-adventure"
+          target="_blank"
+          rel="noopener"
+        >
+          View the project on GitHub
+        </a>
+      </p>
+    </section>
   </main>
 </Layout>

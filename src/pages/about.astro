@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Version } from "../lib/version";
 ---
 
 <Layout title="About | AI Adventure">
@@ -10,18 +11,105 @@ import Layout from "../layouts/Layout.astro";
       <h1>About AI Adventure</h1>
 
       <p class="introduction">
-        AI Adventure is an open format for creating and playing interactive adventures using modern AI.
+        AI Adventure is an open framework for creating, sharing and playing
+        AI-powered interactive adventures.
       </p>
     </header>
 
+    <h2>What is AI Adventure?</h2>
+
     <p>
-      Every adventure describes a world rather than a script, allowing the AI
-      to create a unique experience while remaining faithful to the author's
-      vision.
+      Traditional interactive fiction follows a script. AI Adventure takes a
+      different approach.
     </p>
 
     <p>
-      This project is currently under active development.
+     Each adventure describes a world, its rules, important truths, 
+     characters and goals, while the AI creates a unique playthrough based on the player's choices.
+    </p>
+
+    <p>
+      The result is an adventure that remains recognisable between
+      playthroughs, while allowing different conversations, discoveries,
+      puzzles and solutions to emerge naturally.
+    </p>
+
+    <h2>Open Framework</h2>
+
+    <p>
+      AI Adventure is designed to work across many capable AI systems rather
+      than being tied to a single AI provider or platform.
+    </p>
+
+    <p>
+      The AI Adventure Guide, Adventure Format and example adventures are all released 
+      under the Creative Commons CC0 licence, encouraging anyone to create, modify, 
+      share and build upon compatible adventures.
+    </p>
+
+    <p>
+      See the <a href="/format/">Documentation</a> section for the Guide,
+      format specification and other project information.
+    </p>
+
+    <h2>Philosophy</h2>
+
+    <p>
+      AI Adventure separates the adventure from the AI that runs it.
+    </p>
+
+    <p>
+      Rather than scripting every possible action, adventures describe worlds, rules,
+       characters, discoveries and immutable truths. This allows different AI systems 
+       to interpret the same adventure in their own way while remaining faithful to 
+       the author's intent.
+    </p>
+
+    <h2>Current Version</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Framework</td>
+          <td><strong>v{Version.framework}</strong></td>
+        </tr>
+        <tr>
+          <td>AI Adventure Guide</td>
+          <td><strong>v{Version.guide}</strong></td>
+        </tr>
+        <tr>
+          <td>Adventure Format</td>
+          <td><strong>v{Version.format}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Support the Project</h2>
+
+    <p>
+      AI Adventure will always remain free to use.
+    </p>
+
+    <p>
+      If you've enjoyed playing or building adventures, you're welcome to
+      <a
+        href="https://ko-fi.com/ai_adventure"
+        target="_blank"
+        rel="noopener"
+      > shout AI Adventure a tea
+      </a>.
+    </p>
+
+    <p>
+      Every contribution helps support the continued development of the framework, 
+      documentation, website and adventures while keeping AI Adventure free and 
+      open for everyone.
     </p>
   </main>
 </Layout>
