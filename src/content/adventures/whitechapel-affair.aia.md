@@ -10,6 +10,7 @@ typicalJourney: "Standard"
 genre: "Victorian detective mystery"
 featured: false
 published: true
+beta: true
 ---
 
 ## About The Whitechapel Affair

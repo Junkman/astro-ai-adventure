@@ -28,9 +28,18 @@ const getAdventureId = (adventure) =>
           const adventureId = getAdventureId(adventure);
 
           return (
-            <article class="adventure-card">
+            <article
+              class:list={[
+                "adventure-card",
+                adventure.data.beta && "beta-adventure",
+              ]}
+            >
               {adventure.data.featured && (
                 <span class="badge">Featured adventure</span>
+              )}
+
+              {adventure.data.beta && (
+                <span class="badge">Beta</span>
               )}
 
               <h2>
@@ -74,3 +83,19 @@ const getAdventureId = (adventure) =>
     </section>
   </main>
 </Layout>
+
+<style>
+  .beta-adventure {
+    display: none;
+  }
+</style>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.has("beta")) {
+    document.querySelectorAll(".beta-adventure").forEach((card) => {
+      card.classList.remove("beta-adventure");
+    });
+  }
+</script>

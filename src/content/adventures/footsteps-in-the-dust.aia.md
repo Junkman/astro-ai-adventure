@@ -10,10 +10,14 @@ typicalJourney: "Standard"
 genre: "Historical investigation"
 featured: true
 published: true
+beta: true
 ---
 
 ## About Footsteps in the Dust
 
-You awaken beside an unfamiliar road in an ancient land. You do not know exactly where you are, what has recently happened, or whom the travellers around you may have encountered.
+You awaken beside an unfamiliar road in an ancient land. You do not know exactly where
+ you are, what has recently happened, or whom the travellers around you may have
+  encountered.
 
-Explore carefully, compare what people claim with what they have actually witnessed, and decide which footsteps are worth following.
+Explore carefully, compare what people claim with what they have actually witnessed,
+ and decide which footsteps are worth following.

@@ -25,8 +25,9 @@ const adventures = defineCollection({
       "Open-ended",
     ]),
 
-    genre: z.string(),
+	beta: z.boolean().default(false),
     featured: z.boolean().default(false),
+    genre: z.string(),
     published: z.boolean().default(true),
   }),
 });

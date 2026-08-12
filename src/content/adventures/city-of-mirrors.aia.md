@@ -10,6 +10,7 @@ typicalJourney: "Standard"
 genre: "Psychological mystery"
 featured: true
 published: true
+beta: true
 ---
 
 ## About The City of Mirrors

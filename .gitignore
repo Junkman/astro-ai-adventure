@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Generated AI-facing files
+
+/public/AI-Adventure-Guide.md
+/public/AI-Adventure-Guide.txt
+/public/adventures/*.aia.md
+/public/adventures/*.aia.txt
