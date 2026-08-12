@@ -35,11 +35,16 @@ const { adventure } = Astro.props;
         <a href="/adventures/">← All adventures</a>
       </p>
 
-      <header class="page-header">
-        <p class="eyebrow">{adventure.data.genre}</p>
-        <h1>{adventure.data.title}</h1>
-        <p class="introduction">{adventure.data.description}</p>
-      </header>
+<header class="page-header">
+  <p class="eyebrow">{adventure.data.genre}</p>
+
+  {adventure.data.beta && (
+    <span class="badge">Beta adventure</span>
+  )}
+
+  <h1>{adventure.data.title}</h1>
+  <p class="introduction">{adventure.data.description}</p>
+</header>
 
       <dl class="adventure-details">
         <div>
@@ -54,7 +59,7 @@ const { adventure } = Astro.props;
 
         <div>
           <dt>Version</dt>
-          <dd>{adventure.data.version}</dd>
+          <dd>{adventure.data.adventureVersion}</dd>
         </div>
 
         <div>
@@ -62,6 +67,15 @@ const { adventure } = Astro.props;
           <dd>{adventure.data.author}</dd>
         </div>
       </dl>
+
+<div class="card-actions">
+  <a
+    class="button"
+    href={`/launcher/?adventure=${adventure.data.id ?? adventure.id.replace(/\.aia$/, "")}`}
+  >
+    Play this one
+  </a>
+</div>
 
       <div class="content">
         <h2>About {adventure.data.title}</h2>

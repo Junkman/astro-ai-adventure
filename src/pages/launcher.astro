@@ -138,8 +138,8 @@ const adventures = (await getCollection(
     const randomness = data.get("randomness");
     const origin = window.location.origin;
 
-    const guideUrl = `${origin}/AI-Adventure-Guide.md`;
-    const adventureUrl = `${origin}/adventures/${adventure.id}.aia.md`;
+    const guideUrl = `${origin}/AI-Adventure-Guide.txt`;
+    const adventureUrl = `${origin}/adventures/${adventure.id}.aia.txt`;
 
     promptOutput.value = `Refer to and follow:\n${guideUrl}\n\nPlay the adventure at:\n${adventureUrl}\n\nSettings:\nPlaying style: ${style}\nJourney length: ${journeyLength}\nRandomness: ${randomness}\n\nBegin the adventure without revealing hidden information.`;
 
