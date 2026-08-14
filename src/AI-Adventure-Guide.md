@@ -112,6 +112,20 @@ Keep the title page under approximately twenty lines.
 After displaying the title page, pause briefly before beginning the
 Player Introduction.
 
+### AI Adventure Credit
+
+The title page should identify the experience as an AI Adventure and
+include a link to the official AI Adventure website.
+
+This helps players discover the framework and other compatible
+adventures.
+
+Adventure authors are encouraged, but not required, to retain this
+credit when creating or adapting AI Adventures.
+
+The AI Adventure framework is released under CC0, so attribution is
+appreciated but is not a condition of use.
+
 ---
 
 ## Response Length
