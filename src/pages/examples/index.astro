@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const examples = (await getCollection("examples")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
+
+const getExampleId = (example) =>
+  example.id.replace(/\.(md|mdx)$/, "");
+
+const formatAI = (ai) =>
+  Array.isArray(ai) ? ai.join(", ") : ai;
+---
+
+<Layout title="Examples | AI Adventure">
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">See how it plays</p>
+      <h1>Examples</h1>
+
+      <p class="introduction">
+        Real AI Adventure play-throughs and experiments showing how
+        different players and AI systems can take the same framework
+        in rather different directions.
+      </p>
+    </header>
+
+    <section class="adventure-grid">
+      {
+        examples.map((example) => {
+          const exampleId = getExampleId(example);
+
+          return (
+            <article class="adventure-card">
+              {example.data.exampleType && (
+                <span class="badge">{example.data.exampleType}</span>
+              )}
+
+              <h2>
+                <a href={`/examples/${exampleId}/`}>
+                  {example.data.title}
+                </a>
+              </h2>
+
+              <dl>
+                <div>
+                  <dt>Adventure</dt>
+                  <dd>{example.data.adventure}</dd>
+                </div>
+
+                <div>
+                  <dt>Player</dt>
+                  <dd>{example.data.player}</dd>
+                </div>
+
+                {example.data.ai && (
+                  <div>
+                    <dt>AI</dt>
+                    <dd>{formatAI(example.data.ai)}</dd>
+                  </div>
+                )}
+
+                {(example.data.datePlayed || example.data.date) && (
+                  <div>
+                    <dt>Played</dt>
+                    <dd>{example.data.datePlayed ?? example.data.date}</dd>
+                  </div>
+                )}
+              </dl>
+
+              <div class="card-actions">
+                <a
+                  class="button"
+                  href={`/examples/${exampleId}/`}
+                >
+                  Read play-through
+                </a>
+              </div>
+            </article>
+          );
+        })
+      }
+    </section>
+  </main>
+</Layout>

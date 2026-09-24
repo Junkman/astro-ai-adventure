@@ -1,0 +1,144 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export const getStaticPaths = (async () => {
+  const examples = await getCollection("examples");
+
+  return examples.map((example) => ({
+    params: {
+      id: example.id.replace(/\.(md|mdx)$/, ""),
+    },
+    props: {
+      example,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { example } = Astro.props;
+const { Content } = await render(example);
+
+const formatAI = (ai) =>
+  Array.isArray(ai) ? ai.join(", ") : ai;
+
+const playedDate =
+  example.data.datePlayed ?? example.data.date;
+---
+
+<Layout title={`${example.data.title} | AI Adventure`}>
+  <main class="page">
+    <article class="adventure-page">
+      <p>
+        <a href="/examples/">← All examples</a>
+      </p>
+
+      <header class="page-header">
+        <p class="eyebrow">
+          {example.data.exampleType ?? "Play-through"}
+        </p>
+
+        <h1>{example.data.title}</h1>
+
+        <p class="introduction">
+          A recorded AI Adventure play-through or experiment.
+        </p>
+      </header>
+
+      <div class="aia-example-meta">
+        <dl>
+          <dt>Adventure</dt>
+          <dd>{example.data.adventure}</dd>
+
+          <dt>Player</dt>
+          <dd>{example.data.player}</dd>
+
+          {example.data.ai && (
+            <>
+              <dt>AI</dt>
+              <dd>{formatAI(example.data.ai)}</dd>
+            </>
+          )}
+
+          {example.data.model && (
+            <>
+              <dt>Model</dt>
+              <dd>{example.data.model}</dd>
+            </>
+          )}
+
+          {playedDate && (
+            <>
+              <dt>Played</dt>
+              <dd>{playedDate}</dd>
+            </>
+          )}
+
+          {example.data.aiaVersion && (
+            <>
+              <dt>AI Adventure version</dt>
+              <dd>{example.data.aiaVersion}</dd>
+            </>
+          )}
+
+          {example.data.adventureVersion && (
+            <>
+              <dt>Adventure version</dt>
+              <dd>{example.data.adventureVersion}</dd>
+            </>
+          )}
+
+          {example.data.playingStyle && (
+            <>
+              <dt>Playing style</dt>
+              <dd>{example.data.playingStyle}</dd>
+            </>
+          )}
+
+          {example.data.journeyLength && (
+            <>
+              <dt>Journey length</dt>
+              <dd>{example.data.journeyLength}</dd>
+            </>
+          )}
+
+          {example.data.randomness && (
+            <>
+              <dt>Randomness</dt>
+              <dd>{example.data.randomness}</dd>
+            </>
+          )}
+
+          {example.data.mode && (
+            <>
+              <dt>Mode</dt>
+              <dd>{example.data.mode}</dd>
+            </>
+          )}
+
+          {example.data.status && (
+            <>
+              <dt>Status</dt>
+              <dd>{example.data.status}</dd>
+            </>
+          )}
+        </dl>
+      </div>
+
+      <div class="content">
+        <Content />
+      </div>
+
+      {example.data.adventureId && (
+        <div class="card-actions">
+          <a
+            class="button"
+            href={`/adventures/${example.data.adventureId}/`}
+          >
+            View adventure
+          </a>
+        </div>
+      )}
+    </article>
+  </main>
+</Layout>
